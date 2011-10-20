@@ -1,0 +1,25 @@
+%{
+	_title = _title ?: _arg ?: "";	
+
+	s = lib.StringHelper;
+
+	if ("".equals(_title)) {
+		_title = s.pluralize(s.stripLast(request.controller, "Controller"));
+	}
+%}
+
+<table class="crudFormTitle" cellspacing="0" cellpadding="0" width="98%" border="0" align="center">
+	<tbody><tr>
+		<td class="crudFormTitle" width="30%" height="22px" align="center">&nbsp;&nbsp;${_title}</td>
+		<td width="70%" align="right"></td>
+	</tr></tbody>
+</table>
+<table class="crudFormControls" cellspacing="0" cellpadding="0" width="98%" border="0" align="center">
+	<tbody><tr>
+		<td valign="top">
+#{doBody /}
+		</td>
+	</tr></tbody>
+</table>
+
+

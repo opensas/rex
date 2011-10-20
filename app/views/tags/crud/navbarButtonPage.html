@@ -1,0 +1,22 @@
+%{
+	_icon = _icon ?: "";
+	_page = _page ?: -1;
+	
+	_current = _current ?: -1;
+	_lastPage = _lastPage ?: -1;
+	_alt = _alt ?: "";
+
+	_enabled = true;
+
+	if (_page <= 1) _page = 1;
+	if (_page >= _lastPage) _page = _lastPage;
+
+	// estoy al principio y quiero ir antes del principio
+	if (_current==1 && _page<=_current) _enabled = false;
+	
+	// estoy al final y quiero ir más allá del final
+	if (_current==_lastPage && _page>=_lastPage) _enabled = false; 
+
+	_action = "javascript:crudPage(" + _page + ");";
+}%
+#{crud.navbarButton action:_action, enabled:_enabled, icon:_icon, alt:_alt /}

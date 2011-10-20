@@ -1,0 +1,18 @@
+#{set 'toolbar'}
+<table cellSpacing="0" cellPadding="0" width="100%" border="0" class="crudToolbar">
+	<tbody>
+		<tr>
+			<td width="98%" nowrap>
+				&nbsp;#{crud.toolbarButton @create(), 	label:'Alta', 		icon:'alta', 		enabled:true /}	
+				&nbsp;#{crud.toolbarButton @delete(), 	label:'Baja', 		icon:'baja', 		enabled:false /}	
+				&nbsp;#{crud.toolbarButton @update(), 	label:'Editar', 	icon:'modificar', 	enabled:true /}	
+				&nbsp;#{crud.toolbarButton @read(), 	label:'Buscar', 	icon:'consultar', 	enabled:true /}	
+				&nbsp;#{crud.toolbarButton @read(), 	label:'Ver ficha', 	icon:'ficha', 		enabled:false /}
+				&nbsp;#{crud.toolbarButton @export(), 	label:'Exportar', 	icon:'exportar', 	enabled:false /}
+				&nbsp;#{crud.toolbarButton @doPrint(), 	label:'Imprimir', 	icon:'imprimir', 	enabled:false /}
+			</td>
+			<td width="2%"></td>
+		</tr>
+	</tbody>
+</table>
+#{/set}

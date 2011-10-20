@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set htmlTitle:'MetaSSC - Variables' /}
+
+#{crud.toolbar /}
+
+#{crud.title /}
+
+#{form @doRead()}
+
+#{crud.formControls}
+#{include 'VariableController/controls.html' /}
+#{/crud.formControls}
+
+#{crud.formButtons confirmLabel: "&Buscar" /} 
+
+#{include 'VariableController/browse.html'/}
+
+#{/form}
+
+

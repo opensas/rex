@@ -10,7 +10,14 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+    	
+    	String title = play.Play.configuration.getProperty("application.htmlKeywords");
+    	
+        render(title);
     }
 
+    public static void quit() {
+        render();
+    }
+    
 }

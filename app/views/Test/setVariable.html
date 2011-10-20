@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+
+<h1>getVariableTest</h1>
+%{
+	var = lib.TemplateHelper.getVariable('htmlTitle');
+	
+	lib.TemplateHelper.setVariable('myVar', 'first value for myVar');
+%}
+var:${var}<br />
+first value for myVar: #{get 'myVar' /}<br />
+%{
+	var = lib.TemplateHelper.getVariable('htmlTitle');
+	
+	lib.TemplateHelper.setVariable('myVar', 'first value for myVar');
+%}
+
+<hr />
+
+#{setVariable 'body1', ifEmpty:true, var1:"val1"}
+this is body1 if it's empty'
+#{/setVariable}
+body1:${lib.TemplateHelper.getVariable('body1')}<br />
+var1:${lib.TemplateHelper.getVariable('var1')}<br />
+
+#{setVariable 'body1'}
+this is body1#{/setVariable}
+
+#{setVariable 'body1', additive:true, var1:"+addition"}
+this is body1 overwritten
+#{/setVariable}
+
+#{setVariable 'body1', ifEmpty:true}
+this is body1 if it's empty'
+#{/setVariable}
+
+body1:${lib.TemplateHelper.getVariable('body1')}<br />
+var1:${lib.TemplateHelper.getVariable('var1')}<br />
+
+
+#{setVariable 'body1', additive:true, var1:"+addition" /}

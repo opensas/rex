@@ -1,0 +1,65 @@
+#{addStyle 'menu/menu' /}
+#{addScript 'menu/JSCookMenu' /}
+#{addScript 'menu/theme' /}
+#{set 'menu'}
+<table class="menuBar" border="0" cellpadding="0" cellspacing="0" width="100%" id="TMenu">
+	<tr>
+		<td width="70%" class="menuBackgr">
+			<div id="mainMenuID"></div>
+		</td>
+		<td width="30%" class="menuUsuarioDisplay" align="right">
+			<div ondblclick="window.open( '..\\administracion\\entorno.asp', 'entorno', 'width=700, height=350, toolbar=0, menubar=0, directories=0, scrollbars=0, location=0, status=0' ); return false;">usuario: &nbsp;CONCURSOS\ROOT&nbsp;</div>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+var mainMenu = [ 
+  _cmSplit, 
+  [null,'Home','@{Application.index()}',null,'Home page'], 
+  _cmSplit, 
+  [null,'Aplicaciones','#',null,'Aplicaciones',
+    ['<img src="../public/images/menu/edit.png"/>','Aplicaciones','../aplicaciones/abmAplicacion.asp',null,'Alta baja y modificación de recursos.'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Servicios','../aplicaciones/abmServicio.asp',null,'Alta baja y modificación de servicios.'], 
+    ['<img src="../public/images/menu/edit.png"/>','Tipos de servicio','../aplicaciones/abmTipoServicio.asp',null,'Alta baja y modificación de tipos de servicio.'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Recursos','../aplicaciones/abmRecurso.asp',null,'Alta baja y modificación de recursos.'], 
+    ['<img src="../public/images/menu/edit.png"/>','Grupos','../aplicaciones/abmGrupo.asp',null,'Alta baja y modificación de recursos.']
+  ], 
+  _cmSplit, 
+  [null,'Usuarios','#',null,'Usuarios',
+    ['<img src="../public/images/menu/users.png"/>','Usuarios','../usuarios/abmUsuario.asp',null,'Alta baja y modificación de usuarios.'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/document.png"/>','Tipos de usuario','../usuarios/abmTipoUsuario.asp',null,'Alta baja y modificación de tipos de usuario.'], 
+    ['<img src="../public/images/menu/document.png"/>','Tipos de documento','../usuarios/abmTipoDocumento.asp',null,'Alta baja y modificación de tipos de documento.'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/users.png"/>','Usuarios de dominio','../usuarios/abmUsuarioAd.asp',null,'Consulta de usuarios de dominio.']
+  ], 
+  _cmSplit, 
+  [null,'Permisos','#',null,'Permisos',
+    ['<img src="../public/images/menu/users.png"/>','Permisos','../permisos/abmPermiso.asp',null,'Asignación de permisos.'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/document.png"/>','Acciones','../permisos/abmAccion.asp',null,'Alta baja y modificación de tipos de acciones.']
+  ], 
+  _cmSplit, 
+  [null,'Administración','#',null,'Permisos',
+    ['<img src="../public/images/menu/edit.png"/>','Cache','../administracion/Cache.asp',null,'Administrar Cache'], 
+    ['<img src="../public/images/menu/edit.png"/>','Variables','/variable',null,'Variables'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Database info','../administracion/abmDatabaseInfo.asp',null,'Entorno'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Diccionario','../administracion/abmDiccionario.asp',null,'Diccionario'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Auditoría','../administracion/abmAuditoria.asp',null,'Auditoría'], 
+    ['<img src="../public/images/menu/edit.png"/>','Reglas de auditoría','../administracion/abmAuditoriaRegla.asp',null,'Reglas de auditoría'], 
+    _cmSplit, 
+    ['<img src="../public/images/menu/edit.png"/>','Semáforo','../administracion/abmSemaforo.asp',null,'Semáforo'], 
+    ['<img src="../public/images/menu/edit.png"/>','Archivo','../administracion/abmArchivo.asp',null,'Archivo']
+  ], 
+  _cmSplit, 
+  [null,'Salir','@{Application.quit()}',null,'Salir']
+];
+cmDraw('mainMenuID', mainMenu, 'hbr', cmThemeOffice, 'ThemeOffice');
+</script>
+#{/set}

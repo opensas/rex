@@ -1,0 +1,22 @@
+*{
+ *  create a link element for a CSS file under /public/stylesheets
+ *  and adds it to the moreStyles variable
+ *  src (required) filename without the leading path "/public/stylesheets"
+ *  id (optional) an id attribute for the generated link tag
+ *  media (optional) media : screen, print, aural, projection ...
+ *  title (optional) title atttribute (or description)
+ *    ${stylesheet src:'default.css' media:'screen,print' /}
+}*
+
+%{
+
+	
+
+	_src = _src ?: _arg;
+	if (!_src.endsWith('.css')) _src += '.css'; 
+%}
+
+#{set 'moreStyles'}
+#{get 'moreStyles' /}
+#{stylesheet src:_src, id:_id, media:_media, title:_title /}
+#{/set}

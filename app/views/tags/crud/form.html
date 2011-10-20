@@ -1,0 +1,14 @@
+%{
+	_action = _action ?: _arg;	
+	_id = _id ?: "abmForm";
+
+	if (_action==null) {
+		actionName = request.controller + ".do" + lib.StringHelper.toUpperFirst(request.actionMethod);
+		_action = lib.TemplateHelper.reverse(actionName); 
+	}
+%}
+#{form _action, id:id}
+#{doBody /}
+#{/form}
+
+

@@ -1,0 +1,60 @@
+%{
+	u = lib.StringHelper;
+%}
+
+#{crud.browseStateControls /}
+<table class="crudBrowseTitle" height="22" cellspacing="0" cellpadding="0" width="98%" align="center" border="0" id="TitulosGrilla">
+    <tbody><tr>
+		<td width="1%"></td>
+	    <td width="20%">#{crud.columnTitle "Código" /}</td>
+	    <td width="1%"></td>
+	    <td width="30%">#{crud.columnTitle "Contenido" /}</td>          
+	    <td width="1%"></td>
+	    <td width="24%">#{crud.columnTitle "Descripción" /}</td>          
+	    <td width="1%"></td>
+	    <td width="7%">#{crud.columnTitle "Creado" /}</td>          
+	    <td width="1%"></td>
+	    <td width="7%">#{crud.columnTitle "Modifcado" /}</td>          
+	    <td width="1%"></td>
+	</tr></tbody>
+</table>
+
+<table class="crudBrowseRows" cellspacing="0" cellpadding="0" width="98%" border="0" align="center">
+  <tbody><tr>
+    <td valign="top" align="middle" width="100%">
+
+#{list items:variables, as:'item'}
+<table 
+	class="crudRow crudRowHover crudRow${u.toUpperFirst(item_parity)}" 
+	onclick="crudSelect(this, '${item.id}');"
+	ondblclick="location.href='@{update(id:item.id)}';" 
+	border="0" width="100%" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td width="1%" align="left" height="22"></td>
+		<td width="20%" align="left">(${item.id}) <a href="javascript:location.href='@{update(id:item.id)}';">${item.codigo}</a></td>					
+		<td width="1%" align="left"></td>
+		<td width="30%" align="left">${item.contenido}</td>
+		<td width="1%" align="left"></td>
+		<td width="24%" align="left">${item.descripcion}</td>
+		<td width="1%" align="left"></td>
+		<td width="7%" align="left">${item.fechaAlta}</td>
+		<td width="1%" align="left"></td>
+		<td width="7%" align="left">${item.fechaModificacion}</td>
+		<td width="1%" align="left"></td>
+		
+	</tr></tbody>
+</table>
+#{/list}
+#{else}
+<table class="crudRow crudRowEven" height="28" cellspacing="0" cellpadding="0" width="100%" border="0">
+	<tbody><tr>
+		<td class="campos" align="center" width="100%"><b>No se han encontrado registros.</b></td>
+	</tr></tbody>
+</table>
+#{/else}
+
+#{crud.navbar page:pagina, pageSize:paginado, items:variables, count:count /}
+
+    </td>
+  </tr></tbody>
+</table>

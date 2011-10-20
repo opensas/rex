@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+
+<h1>testTomap</h1>
+
+#{list maps, as:'map'}
+
+<h3>map number ${map_index}</h3><br />
+
+#{list map, as:'item'}
+key:${item.key}, value:${item.value}<br />
+#{/list}
+
+<hr />
+#{/list}
+
+<h3>map number 2</h3><br />
+#{list maps.get("map2"), as:'item'}
+key:${item.key}, value:${item.value}<br />
+#{/list}
+
+<hr />

@@ -1,0 +1,40 @@
+*{
+ *  insert a script tag in the template.
+ *  by convention, referred script must be put under /public/javascripts
+ *    src     (required)   : script filename, without the leading path "/public/javascripts"
+ *    id      (opt.)       : sets script id attribute
+ *    charset (opt.)       : sets source encoding - defaults to UTF-8
+ *
+ *    #{script id:'datepicker' , src:'ui/ui.datepicker.js', charset:'utf-8' /}
+}*
+%{
+	_action = _action ?: _arg;
+	
+	if (_enabled==null) _enabled = true;
+	
+	_icon = (_icon ?: _label ?: "accion").toLowerCase();
+	
+	_label = _label ?: "";
+	
+	_iconEnabled = _iconEnabled ?: _icon + "On.gif";
+	_iconDisabled = _iconDisabled ?: _icon + "Off.gif";
+
+	_iconPath = _iconPath ?: "/public/images/crud/toolbar/";
+
+	if (_action==null) {
+		play.exceptions.TagInternalException("action attribute cannot be empty for abm.toolbarButton tag");
+	}
+
+	_iconEnabled = lib.TemplateHelper.checkFile(_iconEnabled, _iconPath);
+	_iconDisabled = lib.TemplateHelper.checkFile(_iconDisabled, _iconPath);
+	
+%}
+#{if _enabled}
+<span class="enabled">
+	<a href="${_action}" tabindex="-1">
+	<img src="${_iconEnabled}" align="absmiddle" border="0">${_label}</a>
+</span>
+#{/if}
+#{else}
+<span class="disabled"><img src="${_iconDisabled}" align="absmiddle" border="0">${_label}</span>
+#{/else}

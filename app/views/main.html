@@ -1,16 +1,41 @@
+#{include 'include/init.html' /}
 <!DOCTYPE html>
+#{addStyle 'style' /}
+#{menu /}
 
 <html>
     <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <title>#{get 'htmlTitle' /}</title>
+		<meta content="#{get 'htmlKeywords' /}" name="keywords">
+		<meta content="#{get 'htmlDescription' /}" name="description">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		        
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/crud.js'}" type="text/javascript" charset="utf-8"></script>
         #{get 'moreScripts' /}
+        
     </head>
     <body>
-        #{doLayout /}
+    	#{banner /}
+    	#{get 'menu' /}
+    	#{get 'toolbar' /}
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="1%"></td>
+				<td width="98%">
+					#{doLayout /}
+				</td>
+				<td width="1%">
+					<img height="1px" src="@{'/public/images/misc/spacer.png'}" width="5px">
+				</td>
+			</tr>
+		</table>
+		#{footer /}
     </body>
 </html>
+
+<script type="text/javascript">
+	changeImageOnHover("a.hoverImage");
+</script>

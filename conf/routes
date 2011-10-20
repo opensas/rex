@@ -5,11 +5,30 @@
 # Home page
 GET     /                                       Application.index
 
-# Ignore favicon requests
-GET     /favicon.ico                            404
+GET		/test									Test.index
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+GET		/variable/test							VariableController.createTestData
+
+GET		/variable								VariableController.read
+# para que no aparezcan los input ensuciando el query string
+POST	/variable/buscar						VariableController.doRead
+GET		/variable/buscar						VariableController.doRead
+
+GET		/variable/nueva							VariableController.create
+POST	/variable/								VariableController.doCreate
+
+GET		/variable/{id}							VariableController.update
+POST	/variable/{id}							VariableController.doUpdate
+
+GET		/variable/{id}/borrar					VariableController.delete
+POST	/variable/{id}/borrar					VariableController.doDelete
+
+GET		/test/testRouteWithParam/{id}/user/{name}	Test.testRouteWithParam
+
+*		/admin              					module:crud
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

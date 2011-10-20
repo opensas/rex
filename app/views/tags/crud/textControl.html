@@ -1,0 +1,25 @@
+%{
+	_name = _name ?: _arg ?: "";
+	_id = _id ?: "";
+	_maxlength = _maxlength ?: _max ?: "";
+
+	_class = _class ?: "crudField";
+
+	if (play.data.validation.Validation.hasError(_name)) _class = _class + " hasError";
+
+	_values = ['name':_name, 'id':_id, 'maxlength':_maxlength];
+	
+	if (_value==null) {
+		try {
+			_value = evaluate("_caller." + _name);
+		} catch (Exception all) {
+			_value = "";
+		}
+	}
+	
+	serializedAttrs = lib.TemplateHelper.serialize(_values);
+	//serializedAttrs = play.templates.FastTags.serialize(_attrs);
+	//serializedAttrs = play.templates.FastTags.serialize(_values);
+	
+%}
+<input type="text" class="${_class}" value="${_value}" ${serializedAttrs.raw()}>

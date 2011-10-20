@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+
+<h1>testRouteWithParam</h1>
+
+id:${id}<br />
+name:${name}<br />
+
+%{
+	url = lib.TemplateHelper.reverse('Test.testRouteWithParam(id:1,name:"sas")').url.raw();
+	url2 = '/test/testRouteWithParam/1/sas';
+	url3 = actionBridge.Test.testRouteWithParam(id:1,name:"sas").url;
+%}
+
+defUrl: <textarea rows="2" cols="100">${defUrl}</textarea><br />
+url: <textarea rows="2" cols="100">@{Test.testRouteWithParam(id:1,name:"sas")}</textarea><br />
+url from lib: <textarea rows="2" cols="100">${url.raw()}</textarea><br />
+url2: <textarea rows="2" cols="100">${url2}</textarea><br />
+url3: <textarea rows="2" cols="100">${url3}</textarea><br />
+
+<hr />
+id: <input id="id" value="${id}"><br />
+name: <input id="name" value="${name}"><br />
+
+<input type="button" value="call with params" onclick="callWithParams()">
+
+
+<script type="text/javascript">
+function callWithParams() {
+	//var urlBuilder = #{jsAction @Test.testRouteWithParam(':id',':name') /}
+	location.href = #{jsAction @Test.testRouteWithParam(':id',':name') /}({id:document.getElementById('id').value,name:document.getElementById('name').value}); 
+}
+
+</script>

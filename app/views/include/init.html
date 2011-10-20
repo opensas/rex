@@ -1,0 +1,6 @@
+%{
+configuration = play.Play.configuration;
+%}
+#{setVariable htmlTitle:configuration["application.htmlTitle"], default:true /}
+#{setVariable htmlKeywords:configuration["application.htmlKeywords"], default:true /}
+#{setVariable htmlDescription:configuration["application.htmlDescription"], default:true /}

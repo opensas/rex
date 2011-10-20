@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+
+<h1>testCrudActions</h1>
+
+#{list actions, as:'item'}
+name: ${item.name}, label: ${item.label}<br />
+#{/list}
+<br />
+actionsString:${actionString}<br />
+
+<hr />
+<h2>visibles</h2>
+#{list actions.getVisibles(), as:'item'}
+name: ${item.name}, label: ${item.label}<br />
+#{/list}
+
+<hr />
+<h2>enabled</h2>
+#{list actions.getEnabled(), as:'item'}
+name: ${item.name}, label: ${item.label}<br />
+#{/list}

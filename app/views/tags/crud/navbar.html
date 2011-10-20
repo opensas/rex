@@ -1,0 +1,106 @@
+%{
+	// #{crud.navBar page:_caller.pagina, pageSize:_caller.paginado, items:variables, count:_caller.count /}
+
+	_page = _page ?: 1;
+	_pageSize = _pageSize ?: lib.TemplateHelper.DEFAULT_PAGE_SIZE;
+	
+	_pageCount = _items.size(); // cantidad de registros de esta página
+	
+	_count = _count ?: -1;
+
+	_lastPage = -1; // cantidad total de páginas
+
+	if (_page < 1) _page = 1;
+
+	_atStart = (_page==1);	
+	
+	//no especificaron la cantidad total de registros
+	if (_count==-1) {
+		_lastPage = -1;
+		_atEnd = false;
+	} else {
+		_lastPage = _count.intdiv(_pageSize);
+		if (_count.mod(_pageSize) > 0) _lastPage++;
+		_atEnd = (_page==_lastPage);
+	}
+
+	_from = ((_page - 1) * _pageSize) + 1;
+	_to = _from + _pageCount - 1; 
+
+	_groupStartPage = 0;
+	_groupEndPage = 0;
+	_groupMiddlePage = (((_page-1).intdiv(10)) * 10)+1;
+	_groupMiddlePageEnd = _groupMiddlePage+9 > _lastPage ? _lastPage : _groupMiddlePage+9; 
+
+	if (_groupMiddlePage>1) _groupStartPage = 1;
+	
+	if (_lastPage > _groupMiddlePage+9) {
+		_groupEndPage = _lastPage-2;
+		if (_groupEndPage <= _groupMiddlePage+9 ) {
+			_groupEndPage = _groupMiddlePage+10;
+		}
+	}
+
+%}
+<table class="crudBrowseNavbar" cellspacing="0" cellpadding="0" width="100%" border="0">
+	<tbody><tr>
+		<td nowrap="" width="15%" height="25">
+
+<!-- Combo de navegación de páginas -->
+&nbsp;Pag:
+<select class="Campos" onchange="crudPaginaSelect(this)">
+#{if _groupStartPage!=0}
+	#{list items:1..3, as:'i'}
+		<option value="${i}"${_page==i ? " selected" : ""}>${i}</option>
+	#{/list}
+		<option value="">...</option>
+#{/if}
+#{list items:_groupMiddlePage.._groupMiddlePageEnd, as:'i'}
+	<option value="${i}"${_page==i ? " selected" : ""}>${i}</option>
+#{/list}
+#{if _groupEndPage!=0}
+		<option value="">...</option>
+	#{list items:_groupEndPage.._lastPage, as:'i'}
+		<option value="${i}"${_page==i ? " selected" : ""}>${i}</option>
+	#{/list}
+#{/if}
+</select>
+<!-- Fin Combo de navegación de páginas -->
+
+		</td>
+		<td nowrap="" width="20%">
+<!-- Combo de cantidad de filas a mostrar -->
+&nbsp;Mostrar: 
+<select onchange="crudPaginado(this)">
+	<option value="5"${_pageSize==5 ? " selected" : ""}>de a 5</option>
+	<option value="15"${_pageSize==15 ? " selected" : ""}>de a 15</option>
+	<option value="30"${_pageSize==30 ? " selected" : ""}>de a 30</option>
+	<option value="50"${_pageSize==50 ? " selected" : ""}>de a 50</option>
+	<option value="100"${_pageSize==100 ? " selected" : ""}>de a 100</option>
+	<option value="500"${_pageSize==500 ? " selected" : ""}>de a 500</option>
+</select>
+<!-- Fin Combo de cantidad de filas a mostrar -->
+
+		</td>
+		<td nowrap="" align="center" width="35%">
+
+<img height="25px" src="/public/images/crud/navbar/line.gif" width="12px">
+
+#{crud.navbarButtonPage icon:'first', 		alt:'Ir a la primera página', 		page:1, 		current:_page, lastPage:_lastPage /}
+#{crud.navbarButtonPage icon:'prevMany', 	alt:'Ir 10 páginas hacia atrás', 	page:_page-10, 	current:_page, lastPage:_lastPage /}
+#{crud.navbarButtonPage icon:'prev', 		alt:'Ir a la página anterior', 		page:_page-1, 	current:_page, lastPage:_lastPage /}
+
+#{crud.navbarButtonPage icon:'next', 		alt:'Ir a la página siguiente', 	page:_page+1, 	current:_page, lastPage:_lastPage /}
+#{crud.navbarButtonPage icon:'nextMany', 	alt:'Ir 10 páginas hacia adelante', page:_page+10, 	current:_page, lastPage:_lastPage /}
+#{crud.navbarButtonPage icon:'last', 		alt:'Ir a la última página', 		page:_lastPage, current:_page, lastPage:_lastPage /}
+<img height="25px" src="/public/images/crud/navbar/line.gif" width="12px">
+#{crud.navbarButton icon:'excel', 		alt:'Exportar a excel', enabled:(_pageCount>1), action:"javascript:alert('export')" /}
+<img height="25px" src="/public/images/crud/navbar/line.gif" width="12px">
+#{crud.navbarButton icon:'help', 		alt:'Exportar a excel', action:"javascript:alert('help')" /}
+
+		<td nowrap="" align="right" width="30%">
+			Registros: ${_from}-${_to}${_count!=-1 ? " de " + _count : ""}&nbsp;&nbsp;
+		</td>
+	</tr>
+	</tbody>
+</table>

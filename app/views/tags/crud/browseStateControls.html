@@ -1,0 +1,32 @@
+<div style="display: block">
+#{crud.formControls title: "Browse state"}
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "id" /}</td>
+	<td width="1%"></td>          
+	<td width="85%" class="crudField">#{crud.textControl "id", id:"id", value:_caller.id/}</td>
+	<td width="1%"></td>		    
+#{/crud.row}
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "orden" /}</td>
+	<td width="1%"></td>          
+	<td width="85%" class="crudField">#{crud.textControl "orden", id:"orden", value:_caller.orden /}</td>
+	<td width="1%"></td>		    
+#{/crud.row}
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "pagina" /}</td>
+	<td width="1%"></td>          
+	<td width="85%" class="crudField">#{crud.textControl "pagina", id:"pagina", value:_caller.pagina /}</td>
+	<td width="1%"></td>		    
+#{/crud.row}
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "paginado" /}</td>
+	<td width="1%"></td>          
+	<td width="85%" class="crudField">#{crud.textControl "paginado", id:"paginado", value:_caller.paginado /}</td>
+	<td width="1%"></td>		    
+#{/crud.row}
+#{/crud.formControls}
+</div>

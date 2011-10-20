@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{include 'include/init.html' /}
+#{set htmlTitle:'MetaSSC home page' /}
+<h1>Test page!</h1>
+
+${controllers.Test.renderArgs}<br />
+
+combo test <br />
+#{select 'combo', items:['item1':'value1', 'item2':'value2'], title:"theTitle", tabindex:0 /}
+
+<hr />
+
+#{list data, as:'item'}
+${item.key}: ${item.value}<br />
+#{/list}
+
+<hr />
+
+<textarea>@{index()}</textarea>

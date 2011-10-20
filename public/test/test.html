@@ -1,0 +1,41 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css" charset="utf-8">
+<script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+
+<table class="crudRow crudRowEven crudRowHover" onclick="selectMe(this);">
+	<tr>
+		<td>Hola</td>
+	</tr>
+</table>
+
+<table class="crudRow crudRowOdd crudRowHover" onclick="selectMe(this);">
+	<tr>
+		<td>Hola</td>
+	</tr>
+</table>
+
+<table class="crudRow crudRowEven crudRowHover" onclick="selectMe(this);">
+	<tr>
+		<td>Hola</td>
+	</tr>
+</table>
+
+<table class="crudRow crudRowOdd crudRowHover" onclick="selectMe(this);">
+	<tr>
+		<td>Hola</td>
+	</tr>
+</table>
+
+
+</html>
+
+<script type="text/javascript">
+
+function selectMe(control) {
+	$('table.crudRow').removeClass('crudRowSelected');
+	$(control).addClass('crudRowSelected'); 
+}
+</script>

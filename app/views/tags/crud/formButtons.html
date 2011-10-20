@@ -1,0 +1,26 @@
+%{
+	_confirmLabel = _confirmLabel ?: "&Grabar";
+	_cancelLabel = _cancelLabel ?: "&Cancelar";
+	
+	if (_cancel==null) {
+		_cancel = lib.TemplateHelper.reverse(request.controller + ".read");
+	}
+	_cancelUrl = _cancel.url;
+	
+	_confirmHtml = lib.TemplateHelper.getButtonLabel(_confirmLabel);
+	_confirmAccessKey = lib.TemplateHelper.getButtonAccessKey(_confirmLabel);
+	_confirmAccessKey = _confirmAccessKey != "" ? ' accesskey="' + _confirmAccessKey + '"' : "";  
+	
+	_cancelHtml = lib.TemplateHelper.getButtonLabel(_cancelLabel);
+	_cancelAccessKey = lib.TemplateHelper.getButtonAccessKey(_cancelLabel);
+	_cancelAccessKey = _cancelAccessKey != "" ? ' accesskey="' + _cancelAccessKey + '"' : "";
+	
+%}
+<table class="crudActionbar" align="center" cellspacing="0" cellpadding="0" width="98%" border="0">
+	<tbody><tr>    
+  		<td>
+  			<button type="submit"${_confirmAccessKey.raw()}>${_confirmHtml.raw()}</button>&nbsp;
+  			<button type="button"${_cancelAccessKey.raw()} onclick="javascript:location.href='${_cancelUrl}';">${_cancelHtml.raw()}</button>
+		</td>
+	</tr></tbody>
+</table>

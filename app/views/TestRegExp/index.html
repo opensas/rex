@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{include 'include/init.html' /}
+#{set htmlTitle:'MetaSSC home page' /}
+<h1>regular expression test!</h1>
+
+#{form @index()}
+
+text:<textarea name="text" rows="1", cols="80">${text}</textarea><br />
+regular expression:<textarea name="expression" rows="1", cols="80">${expression}</textarea><br />
+<br />
+<input type="submit" value="ok">
+
+#{/form}
+
+<hr />
+
+#{if result!=null}
+	#{list result, as:'match'}
+start:${match.start}, end:${match.end}, group:${match.group}<br />
+	#{/list}
+#{/if}

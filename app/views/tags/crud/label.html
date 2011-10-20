@@ -1,0 +1,19 @@
+%{
+	_label = _label ?: _arg ?: "label?";
+	_required = _required ?: false;
+
+	_field = _field ?: lib.StringHelper.toFieldName(_label);
+	
+	_class = _class ?: "crudLabel";
+
+	if (play.data.validation.Validation.hasError(_field)) _class = _class + " hasError";
+
+	u = lib.Utils;
+
+	if (!u.isOneOf(request.actionMethod, "create,doCreate,update,doUpdate")) _required = false;
+
+%}
+#{if _required}
+<span class="crudRequiredLabel">*</span>
+#{/if}
+<span class="${_class}">${_label}</span>

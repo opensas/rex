@@ -1,0 +1,84 @@
+Variable(APP_AD_VALIDATE_USER):
+  codigo:       APP_AD_VALIDATE_USER
+  contenido:    No
+  descripcion:  Indica si validaremos los usuarios contra active directory. valor a ser escapado escape y otro escape mas/menos
+
+Variable(APP_ESTADO):
+  codigo:       APP_ESTADO
+  contenido:    online
+  descripcion:  Permite poner la aplicación fuera de línea, si el contenido es (online/offline)
+
+Variable(APP_ESTADO_MENSAJE):
+  codigo:       APP_ESTADO_MENSAJE
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE2):
+  codigo:       APP_ESTADO_MENSAJE2
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE3):
+  codigo:       APP_ESTADO_MENSAJE3
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE4):
+  codigo:       APP_ESTADO_MENSAJE4
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE5):
+  codigo:       APP_ESTADO_MENSAJE5
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE6):
+  codigo:       APP_ESTADO_MENSAJE6
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE7):
+  codigo:       APP_ESTADO_MENSAJE7
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE8):
+  codigo:       APP_ESTADO_MENSAJE8
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE9):
+  codigo:       APP_ESTADO_MENSAJE9
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE10):
+  codigo:       APP_ESTADO_MENSAJE10
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE11):
+  codigo:       APP_ESTADO_MENSAJE11
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE12):
+  codigo:       APP_ESTADO_MENSAJE12
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE13):
+  codigo:       APP_ESTADO_MENSAJE13
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE14):
+  codigo:       APP_ESTADO_MENSAJE14
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline
+
+Variable(APP_ESTADO_MENSAJE15):
+  codigo:       APP_ESTADO_MENSAJE15
+  contenido:    El sistema se encuentra fuera de línea porque se están realizando tareas de mantenimiento. Nos vemos pronto.
+  descripcion:  Mensaje a desplegar cuando el sistema está offiline

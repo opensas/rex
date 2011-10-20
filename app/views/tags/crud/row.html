@@ -1,0 +1,18 @@
+%{
+	row_index = _index ?: _arg ?: _caller.row_index ?: 0;	
+
+	row_index = row_index + 1;
+	
+	row_parity = ( row_index % 2 == 0 ? 'even' : 'odd' );
+
+	_caller.row_index = row_index;
+	_caller.row_parity = row_parity;
+
+	_class = "crudRow crudRow" + lib.StringHelper.toUpperFirst(row_parity);
+
+%}
+<table class="${_class}" height="30" cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tbody><tr>
+#{doBody /}
+   </tr></tbody>
+</table>

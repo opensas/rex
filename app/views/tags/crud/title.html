@@ -1,0 +1,44 @@
+%{
+	_title = _title ?: _arg ?: "";	
+
+	_icon = _icon ?: "";
+	
+	_iconPath = _iconPath ?: "/public/images/crud/title/";
+	
+	//out.println(request.actionMethod);
+	if (_title=="") {
+		switch (request.actionMethod) {
+			case ["read", "doRead"]:
+				_title = "Consulta";
+				_icon = "consultar.gif";
+				break;
+			case ["create", "doCreate"]:
+				_title = "Alta";
+				_icon = "alta.gif";
+				break;
+			case ["update", "doUpdate"]:
+				_title = "Edición";
+				_icon = "modificar.gif";
+				break;
+			case ["delete", "doDelete"]:
+				_title = "Baja";
+				"baja.gif";
+				break;
+		}
+	}
+	if (_icon!="") {
+		_icon = lib.TemplateHelper.checkFile(_icon, _iconPath);
+	}	
+%}
+<table width="98%" align="center" class="crudTitle">
+	<tbody><tr>
+		<td width="40%" align="left">
+			<img src="${_icon}" vspace="0" align="absmiddle">&nbsp;&nbsp;${_title}
+		</td>
+		<td width="30%" align="center"></td>
+		<td width="30%" align="right"></td>
+	</tr></tbody>
+</table>
+
+
+

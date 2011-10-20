@@ -1,0 +1,15 @@
+%{
+	_title = _title ?: _arg ?: "title?";
+	
+	_orderBy = _orderBy ?: lib.StringHelper.toFieldName(_title);
+
+	if (_orderBy=="none") {
+		onclick = ""
+	} else {
+		onclick = " onclick=\"crudOrderBy('" + _orderBy + "');\""
+	}
+
+	_direction = "+"
+	
+%}
+<a href="#" tabindex="-1"${onclick.raw()}>${_title.raw()}${_direction.raw()}</a>

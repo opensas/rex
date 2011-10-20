@@ -1,0 +1,17 @@
+*{
+ *  creates a script tag and add it to the moreScripts variable.
+ *  by convention, referred script must be put under /public/javascripts
+ *    src     (required)   : script filename, without the leading path "/public/javascripts"
+ *    id      (opt.)       : sets script id attribute
+ *    charset (opt.)       : sets source encoding - defaults to UTF-8
+ *
+ *    #{script id:'datepicker' , src:'ui/ui.datepicker.js', charset:'utf-8' /}
+}*
+%{
+	_src = _src ?: _arg;
+	if (!_src.endsWith('.js')) _src += '.js'; 
+%}
+#{set 'moreStyles'}
+#{get 'moreStyles' /}
+#{script src:_src, id:_id, charset:_charset /}
+#{/set}

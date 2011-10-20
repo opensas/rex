@@ -1,0 +1,15 @@
+#{if flash.success}
+<div class="flash_success">
+    <span>${flash.success}</span>
+</div>
+#{/if}
+#{ifErrors}
+<div class="flash_warning">
+    <span>Los cambios no han podido ser guardados.</span>
+</div>
+<div class="flash_error">
+#{errors}
+    <span>${error}</span>
+#{/errors}
+</div>
+#{/ifErrors}

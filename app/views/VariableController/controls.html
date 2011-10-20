@@ -1,0 +1,29 @@
+<div style="display: block">
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "id (hidden)" /}</td>
+	<td width="1%"></td>          
+	<td width="85%" class="crudField">#{crud.textControl "variable.id", /}</td>
+	<td width="1%"></td>		    
+#{/crud.row}
+</div>
+
+#{crud.row}
+	<td width="1%"></td>
+	<td width="12%" class="crudLabel">#{crud.label "Código", required:true, field:"variable.codigo" /}</td>
+	<td width="1%"></td>          
+	<td width="20%" class="crudField">#{crud.textControl "variable.codigo", max:50 /}</td>
+	<td width="1%"></td>		    
+	<td width="10%" class="crudLabel">#{crud.label "Contenido", required:true, field:"variable.contenido" /}</td>
+	<td width="1%"></td>          
+	<td width="51%" class="crudField">#{crud.textControl "variable.contenido", maxlength:500 /}</td>
+	<td width="3%"></td>
+#{/crud.row}
+
+#{crud.row}
+	<td width="1%"></td>		  
+	<td width="12%" class="crudLabel">#{crud.label "Descripción", required:true, field:"variable.descripcion" /}</td>
+	<td width="1%"></td>          
+    <td width="85%" class="crudField">#{crud.textControl "variable.descripcion", max:500 /}</td>
+    <td width="1%"></td>
+#{/crud.row}

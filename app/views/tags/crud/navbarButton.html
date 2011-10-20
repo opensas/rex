@@ -1,0 +1,17 @@
+%{
+	_icon = _icon ?: "";
+	if (_enabled==null) _enabled = true;
+	_action = _action ?: "";
+	_alt = _alt ?: "";
+	_alt = _alt != '' ? ' alt="' + _alt + '"' : '';
+	
+	if (_icon != '') _icon = "/public/images/crud/navbar/" + _icon + ".gif";
+
+}%
+#{if _enabled}
+<a href="${_action}" class="hoverImage" tabindex="-1">
+	<img border="0"${_alt.raw()} src="${_icon}"></a>
+#{/if}
+#{else}
+	<img border="0"${_alt.raw()} src="${_icon}">
+#{/else}
